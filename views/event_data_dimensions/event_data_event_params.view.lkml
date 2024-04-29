@@ -495,14 +495,14 @@ dimension: custom_verification_screen {
   dimension: custom_available_points {
     group_label: "Event: Additional Parameters"
     label: "available_points"
-    type: string
+    type: number
     sql: (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'available_points') ;;
   }
 
   dimension: custom_redeemable_items_count {
     group_label: "Event: Additional Parameters"
     label: "redeemable_items_count"
-    type: string
+    type: number
     sql: (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'redeemable_items_count') ;;
   }
 
@@ -516,7 +516,7 @@ dimension: custom_verification_screen {
   dimension: custom_points_worth {
     group_label: "Event: Additional Parameters"
     label: "points_worth"
-    type: string
+    type: number
     sql: (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'points_worth') ;;
   }
 
