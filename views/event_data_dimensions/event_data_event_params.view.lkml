@@ -506,6 +506,13 @@ dimension: custom_verification_screen {
     sql: (SELECT value.int_value FROM UNNEST(user_properties) WHERE key = 'experiment_2_bucket') ;;
   }
 
+  dimension: experiment_3_bucket {
+    group_label: "Event: Additional Parameters"
+    label: "experiment_3_bucket"
+    type: number
+    sql: (SELECT value.int_value FROM UNNEST(user_properties) WHERE key = 'experiment_3_bucket') ;;
+  }
+
   dimension: custom_available_points {
     group_label: "Event: Additional Parameters"
     label: "available_points"
