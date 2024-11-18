@@ -2,7 +2,9 @@ include: "/views/event_data_dimensions/event_funnel.view"
 include: "/views/event_data_dimensions/page_funnel.view"
 
 view: sessions {
-  sql_table_name: pirate_dbt_prod.{% parameter ${ga_version} %} ;;
+  sql_table_name: pirate_dbt_prod.ga_sessions_degranulated ;;
+
+#sql_table_name: pirate_dbt_prod.{% parameter ${ga_version} %} ;;
 
 extends: [event_funnel, page_funnel]
 

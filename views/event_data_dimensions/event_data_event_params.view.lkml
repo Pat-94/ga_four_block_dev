@@ -541,5 +541,46 @@ dimension: custom_verification_screen {
     sql: (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'points_worth') ;;
   }
 
+  dimension: user {
+    group_label: "Event: IOS Additional Parameters"
+    label: "user_id"
+    type: string
+    sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'user') ;;
+  }
+
+  dimension: booking {
+    group_label: "Event: IOS Additional Parameters"
+    label: "booking_id"
+    type: string
+    sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'booking') ;;
+  }
+
+  dimension: record_mode {
+    group_label: "Event: IOS Additional Parameters"
+    label: "record_mode"
+    type: string
+    sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'record_mode') ;;
+  }
+
+  dimension: screen_orientation {
+    group_label: "Event: IOS Additional Parameters"
+    label: "screen_orientation"
+    type: string
+    sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'screen_orientation') ;;
+  }
+
+  dimension: camera_mode {
+    group_label: "Event: IOS Additional Parameters"
+    label: "camera_mode"
+    type: string
+    sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'camera_mode') ;;
+  }
+
+  dimension: recording_length {
+    group_label: "Event: IOS Additional Parameters"
+    label: "recording_length"
+    type: number
+    sql: (SELECT value.double_value FROM UNNEST(event_params) WHERE key = 'recording_length') ;;
+  }
 
 }
