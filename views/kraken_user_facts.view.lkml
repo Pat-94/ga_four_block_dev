@@ -23,7 +23,7 @@ dimension: sl_key {
 }
 
 dimension: session_user_id {
-  type: string
+  type: number
   sql: ${TABLE}.user_id ;;
 }
 
