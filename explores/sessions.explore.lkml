@@ -47,6 +47,11 @@ explore: sessions {
     sql_on: ${kraken_user_facts.sl_key} = ${sessions.sl_key};;
   }
 
+  join: experiment_buckets {
+    relationship: many_to_one
+    sql_on: ${experiment_buckets.sl_key} = ${sessions.sl_key} ;;
+  }
+
   # join: future_purchase_prediction {
   #   view_label: "BQML"
   #   relationship: one_to_one
