@@ -4,6 +4,7 @@ derived_table: {
   sql:
   SELECT
   ga.sl_key,
+  ga.user_id,
   true as is_single_user_session,
   u.count_bookings_paid,
   u.first_booking_paid_product,
@@ -19,6 +20,11 @@ dimension: sl_key {
   hidden: yes
   primary_key: yes
   sql: ${TABLE}.sl_key ;;
+}
+
+dimension: session_user_id {
+  type: string
+  sql: ${TABLE}.user_id ;;
 }
 
 dimension: is_single_user_session {
