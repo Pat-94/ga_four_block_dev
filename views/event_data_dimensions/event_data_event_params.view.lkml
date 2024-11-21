@@ -544,8 +544,8 @@ dimension: custom_verification_screen {
   dimension: user {
     group_label: "Event: IOS Additional Parameters"
     label: "user_id"
-    type: string
-    sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'user') ;;
+    type: number
+    sql: CAST((SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'user') as INT64) ;;
   }
 
   dimension: booking {
