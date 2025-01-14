@@ -544,7 +544,7 @@ dimension: custom_verification_screen {
   dimension: recording_id {
     group_label: "Event: Additional Parameters"
     label: "recording_id"
-    type: number
+    type: string
     sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'recording_id') ;;
   }
 
