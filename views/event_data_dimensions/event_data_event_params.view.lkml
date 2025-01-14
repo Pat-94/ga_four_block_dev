@@ -541,6 +541,13 @@ dimension: custom_verification_screen {
     sql: (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'points_worth') ;;
   }
 
+  dimension: recording_id {
+    group_label: "Event: Additional Parameters"
+    label: "recording_id"
+    type: number
+    sql: (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'recording_id') ;;
+  }
+
   dimension: user {
     group_label: "Event: IOS Additional Parameters"
     label: "user_id"
