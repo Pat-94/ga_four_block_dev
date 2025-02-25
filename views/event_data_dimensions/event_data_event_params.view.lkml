@@ -542,7 +542,7 @@ dimension: custom_verification_screen {
   }
 
   dimension: recording_id {
-    group_label: "Event: Additional Parameters"
+    group_label: "Event: IOS Additional Parameters"
     label: "recording_id"
     type: string
     sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'recording_id') ;;
@@ -590,4 +590,17 @@ dimension: custom_verification_screen {
     sql: (SELECT value.double_value FROM UNNEST(event_params) WHERE key = 'recording_length') ;;
   }
 
+  dimension: notifications_accepted {
+    group_label: "Event: IOS Additional Parameters"
+    label: "notifications_accepted"
+    type: yesno
+    sql: (SELECT value.int_value = 1 FROM UNNEST(event_params) WHERE key = 'notifications_accepted') ;;
+  }
+
+  dimension: state {
+    group_label: "Event: IOS Additional Parameters"
+    label: "state"
+    type: string
+    sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'state') ;;
+  }
 }
