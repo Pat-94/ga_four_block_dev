@@ -587,7 +587,9 @@ dimension: custom_verification_screen {
     group_label: "Event: IOS Additional Parameters"
     label: "recording_length"
     type: number
-    sql: (SELECT value.double_value FROM UNNEST(event_params) WHERE key = 'recording_length') ;;
+    sql: (SELECT -- need to remove NaN and Inf values
+      CASE WHEN IS_NAN(value.double_value) OR IS_INF(value.double_value) THEN NULL ELSE value.double_value END
+      FROM UNNEST(event_params) WHERE key = 'recording_length') ;;
   }
 
   dimension: notifications_accepted {
