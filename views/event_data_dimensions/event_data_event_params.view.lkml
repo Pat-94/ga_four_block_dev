@@ -495,8 +495,9 @@ dimension: custom_verification_screen {
   dimension: user_id_external {
     group_label: "Event: Additional Parameters"
     label: "user_id_external"
-    type: number
-    sql: (SELECT value.int_value FROM UNNEST(user_properties) WHERE key = 'user_id_external') ;;
+    type: string
+    sql:
+      (SELECT coalesce(cast(value.int_value as string), value.string_value) FROM UNNEST(user_properties) WHERE key = "user_id_external") ;;
   }
 
   dimension: experiment_2_bucket {
@@ -551,7 +552,7 @@ dimension: custom_verification_screen {
   dimension: user {
     group_label: "Event: IOS Additional Parameters"
     label: "user_id"
-    type: number
+    type: string
     sql: (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'user') ;;
   }
 
